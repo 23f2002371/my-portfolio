@@ -1,12 +1,1805 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
-</head>
-<body>
-  <h1>Welcome to My Portfolio</h1>
-  <p>Contact: <a href="mailto:23f2002371@ds.study.iitm.ac.in">23f2002371@ds.study.iitm.ac.in</a></p>
+    <meta charset="UTF-8">
 
-  <p>You can contact me at: <!--email_off-->23f2002371@ds.study.iitm.ac.in<!--/email_off--></p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Rahul Burdak - Information Technology student, developer and AI enthusiast.">
+
+    <title>Rahul Burdak | Developer Portfolio</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background: #070b14;
+            color: #f5f7ff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #6c63ff;
+            filter: blur(180px);
+            opacity: 0.15;
+            top: -200px;
+            left: -150px;
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #00d9ff;
+            filter: blur(180px);
+            opacity: 0.10;
+            right: -200px;
+            bottom: -150px;
+            z-index: -2;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 0 7%;
+
+            background: rgba(7, 11, 20, 0.72);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: #7c72ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #aeb6ca;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 100px 7%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .section-title {
+            margin-bottom: 50px;
+        }
+
+        .section-title p {
+            color: #7c72ff;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(30px, 4vw, 48px);
+            letter-spacing: -2px;
+        }
+
+        .section-title span {
+            color: #7c72ff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding-top: 130px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .available {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 7px 14px;
+
+            border: 1px solid rgba(124,114,255,0.3);
+            border-radius: 50px;
+
+            color: #b9b4ff;
+            background: rgba(124,114,255,0.08);
+
+            font-size: 13px;
+
+            margin-bottom: 25px;
+
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            background: #5cff91;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #5cff91;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 92px);
+            line-height: 0.98;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+
+            animation: fadeUp 0.9s ease forwards;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #8b82ff,
+                #55dfff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            font-size: 18px;
+            color: #9ca6bb;
+
+            margin-bottom: 35px;
+
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            animation: fadeUp 1.1s ease forwards;
+        }
+
+        .btn {
+            padding: 13px 22px;
+
+            border-radius: 10px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: #7c72ff;
+            color: white;
+            box-shadow: 0 10px 35px rgba(124,114,255,0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(124,114,255,0.4);
+        }
+
+        .btn-secondary {
+            border: 1px solid #273047;
+            color: #cbd2e3;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .btn-secondary:hover {
+            border-color: #7c72ff;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FLOATING ORBS
+        ========================= */
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .orb.one {
+            width: 160px;
+            height: 160px;
+            right: 10%;
+            top: 25%;
+            border: 1px solid rgba(124,114,255,0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .orb.two {
+            width: 80px;
+            height: 80px;
+            right: 25%;
+            bottom: 20%;
+            background: rgba(0,217,255,0.06);
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .about-card {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 18px;
+            padding: 30px;
+
+            transition: 0.35s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(124,114,255,0.4);
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .about-card p {
+            color: #9ca6bb;
+        }
+
+        .education-item {
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+        }
+
+        .education-item h4 {
+            font-size: 16px;
+        }
+
+        .education-item p {
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill {
+            padding: 9px 14px;
+
+            background: rgba(124,114,255,0.07);
+            border: 1px solid rgba(124,114,255,0.18);
+
+            border-radius: 30px;
+
+            font-size: 13px;
+            color: #cbd0ff;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+            background: rgba(124,114,255,0.15);
+            border-color: #7c72ff;
+        }
+
+        /* =========================
+           EXPERIENCE
+        ========================= */
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+
+            left: 7px;
+            top: 0;
+            bottom: 0;
+
+            width: 1px;
+
+            background: #273047;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 45px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+
+            left: 0;
+            top: 5px;
+
+            width: 15px;
+            height: 15px;
+
+            background: #7c72ff;
+            border-radius: 50%;
+
+            box-shadow: 0 0 20px rgba(124,114,255,0.7);
+        }
+
+        .timeline-date {
+            color: #7c72ff;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item h3 {
+            font-size: 21px;
+        }
+
+        .timeline-item h4 {
+            color: #9ca6bb;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item ul {
+            padding-left: 18px;
+            color: #9ca6bb;
+        }
+
+        .timeline-item li {
+            margin-bottom: 7px;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .project-filters {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 9px 15px;
+
+            background: transparent;
+            border: 1px solid #273047;
+
+            border-radius: 30px;
+
+            color: #9ca6bb;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: #7c72ff;
+            color: white;
+            border-color: #7c72ff;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            position: relative;
+
+            padding: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.045),
+                    rgba(255,255,255,0.015)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            transition: 0.4s;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            right: -80px;
+            top: -80px;
+
+            background: #7c72ff;
+
+            filter: blur(100px);
+
+            opacity: 0;
+
+            transition: 0.4s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(124,114,255,0.4);
+        }
+
+        .project-card:hover::before {
+            opacity: 0.2;
+        }
+
+        .project-number {
+            color: #7c72ff;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #9ca6bb;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-bottom: 22px;
+        }
+
+        .tech {
+            font-size: 11px;
+            padding: 5px 9px;
+
+            background: rgba(255,255,255,0.06);
+            border-radius: 5px;
+
+            color: #bdc4d5;
+        }
+
+        .project-link {
+            color: #a59fff;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .project-link:hover {
+            color: white;
+        }
+
+        /* =========================
+           CERTIFICATIONS
+        ========================= */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .cert {
+            padding: 22px;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 15px;
+
+            background: rgba(255,255,255,0.025);
+
+            transition: 0.3s;
+        }
+
+        .cert:hover {
+            transform: translateY(-5px);
+            border-color: rgba(124,114,255,0.4);
+        }
+
+        .cert h3 {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+
+        .cert p {
+            color: #7f899e;
+            font-size: 12px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .contact h2 {
+            font-size: clamp(35px, 6vw, 65px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #9ca6bb;
+            max-width: 600px;
+            margin: auto auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 30px 7%;
+            text-align: center;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+
+            color: #697287;
+            font-size: 13px;
+        }
+
+        /* =========================
+           SCROLL REVEAL
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes fadeUp {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes float {
+
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .about-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 70px;
+                left: 0;
+
+                width: 100%;
+
+                display: none;
+                flex-direction: column;
+
+                padding: 20px 7%;
+
+                background: #0a0f1b;
+
+                border-bottom: 1px solid #20283b;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-card {
+                padding: 22px;
+            }
+
+            .project-card {
+                padding: 22px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <a href="#home" class="logo">
+            RB<span>.</span>
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#experience">Experience</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+
+        <div class="hero-content">
+
+            <div class="available">
+                <span class="dot"></span>
+                Open to opportunities
+            </div>
+
+            <h1>
+                Hi, I'm
+                <span class="gradient-text">
+                    Rahul Burdak.
+                </span>
+            </h1>
+
+            <p class="hero-description">
+                Information Technology student and developer interested
+                in building practical software, AI-powered applications,
+                and data-driven solutions.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View My Work →
+                </a>
+
+                <a href="mailto:rahulburdak38@gmail.com"
+                   class="btn btn-secondary">
+                    Get In Touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="reveal">
+
+        <div class="section-title">
+
+            <p>01 — About</p>
+
+            <h2>
+                A little <span>about me.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="about-grid">
+
+            <div class="about-card">
+
+                <h3>Who I Am</h3>
+
+                <p>
+                    I'm a final-year Information Technology student at
+                    UIET, Panjab University, while also pursuing a
+                    B.S. in Data Science from IIT Madras.
+                </p>
+
+                <br>
+
+                <p>
+                    I enjoy turning ideas into working applications,
+                    especially in web development, AI, NLP, RAG systems
+                    and data analytics.
+                </p>
+
+            </div>
+
+
+            <div class="about-card">
+
+                <h3>Education</h3>
+
+                <div class="education-item">
+
+                    <h4>
+                        University Institute of Engineering & Technology
+                    </h4>
+
+                    <p>
+                        B.E. Information Technology · CGPA 8.28
+                    </p>
+
+                    <p>
+                        2023 — 2027
+                    </p>
+
+                </div>
+
+
+                <div class="education-item">
+
+                    <h4>
+                        Indian Institute of Technology Madras
+                    </h4>
+
+                    <p>
+                        B.S. Data Science · CGPA 7.73
+                    </p>
+
+                    <p>
+                        2023 — 2027
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+    ========================== -->
+
+    <section id="experience" class="reveal">
+
+        <div class="section-title">
+
+            <p>02 — Experience</p>
+
+            <h2>
+                Where I've <span>worked.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    Jun 2026 — Jul 2026
+                </div>
+
+                <h3>
+                    Data Analyst Intern
+                </h3>
+
+                <h4>
+                    Chairbord Pvt. Ltd.
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Analyzed customer feedback to identify
+                        sentiment, concerns and adoption barriers.
+                    </li>
+
+                    <li>
+                        Used SQL for data cleaning, validation and
+                        transformation.
+                    </li>
+
+                    <li>
+                        Identified recurring customer patterns across
+                        different market segments.
+                    </li>
+
+                    <li>
+                        Translated analytical findings into actionable
+                        insights for sales teams.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-date">
+                    Jun 2025 — Jul 2025
+                </div>
+
+                <h3>
+                    UI/UX Designer
+                </h3>
+
+                <h4>
+                    Design Innovation Center — UIET Chandigarh
+                </h4>
+
+                <ul>
+
+                    <li>
+                        Designed user-focused website wireframes and
+                        interactive prototypes using Figma.
+                    </li>
+
+                    <li>
+                        Collaborated with developers and stakeholders
+                        to translate designs into functional interfaces.
+                    </li>
+
+                    <li>
+                        Focused on usability, responsive design and
+                        design consistency.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section id="projects" class="reveal">
+
+        <div class="section-title">
+
+            <p>03 — Projects</p>
+
+            <h2>
+                Things I've <span>built.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="project-filters">
+
+            <button class="filter-btn active"
+                    onclick="filterProjects('all', this)">
+                All
+            </button>
+
+            <button class="filter-btn"
+                    onclick="filterProjects('software', this)">
+                Software
+            </button>
+
+            <button class="filter-btn"
+                    onclick="filterProjects('ai', this)">
+                AI / ML
+            </button>
+
+            <button class="filter-btn"
+                    onclick="filterProjects('analytics', this)">
+                Analytics
+            </button>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+
+            <!-- PROJECT 01 -->
+
+            <article class="project-card"
+                     data-category="software">
+
+                <div class="project-number">
+                    01
+                </div>
+
+                <h3>
+                    Placement Portal
+                </h3>
+
+                <p>
+                    Full-stack recruitment platform designed to
+                    streamline placement activities for students,
+                    companies and administrators.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">Flask</span>
+                    <span class="tech">Vue.js</span>
+                    <span class="tech">SQLite</span>
+                    <span class="tech">Redis</span>
+                    <span class="tech">Celery</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/23f2002371/Placement-Portal-Application---V2"
+                   target="_blank">
+
+                    View on GitHub ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 02 -->
+
+            <article class="project-card"
+                     data-category="ai">
+
+                <div class="project-number">
+                    02
+                </div>
+
+                <h3>
+                    AI Virtual Teaching Assistant
+                </h3>
+
+                <p>
+                    RAG-based assistant that retrieves relevant course
+                    content and discussion data to generate
+                    context-aware answers for students.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">RAG</span>
+                    <span class="tech">FastAPI</span>
+                    <span class="tech">NLP</span>
+                    <span class="tech">Embeddings</span>
+                    <span class="tech">SQLite</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/23f2002371/tds-virtual-ta"
+                   target="_blank">
+
+                    View on GitHub ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 03 -->
+
+            <article class="project-card"
+                     data-category="ai">
+
+                <div class="project-number">
+                    03
+                </div>
+
+                <h3>
+                    Comment Category Classification
+                </h3>
+
+                <p>
+                    NLP classification system with preprocessing,
+                    feature engineering and multiple machine learning
+                    models for scalable text prediction.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">NLP</span>
+                    <span class="tech">Scikit-Learn</span>
+                    <span class="tech">XGBoost</span>
+                    <span class="tech">LightGBM</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://comment-category.streamlit.app/"
+                   target="_blank">
+
+                    Live Demo ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 04 -->
+
+            <article class="project-card"
+                     data-category="ai">
+
+                <div class="project-number">
+                    04
+                </div>
+
+                <h3>
+                    Music Genre Classification
+                </h3>
+
+                <p>
+                    Deep learning system for classifying music genres
+                    from noisy and mixed audio inputs using audio
+                    processing and neural networks.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">CNN</span>
+                    <span class="tech">Deep Learning</span>
+                    <span class="tech">librosa</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://huggingface.co/spaces/rahulburdakiitmds/musicgenrepredictor"
+                   target="_blank">
+
+                    Live Demo ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 05 -->
+
+            <article class="project-card"
+                     data-category="software">
+
+                <div class="project-number">
+                    05
+                </div>
+
+                <h3>
+                    Smart Bill Analyzer
+                </h3>
+
+                <p>
+                    Application that extracts information from bills
+                    and invoices and converts unstructured documents
+                    into useful expense insights.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Python</span>
+                    <span class="tech">Flask</span>
+                    <span class="tech">OCR</span>
+                    <span class="tech">REST API</span>
+                    <span class="tech">JavaScript</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/RahulB38/Spenzo"
+                   target="_blank">
+
+                    View on GitHub ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 06 -->
+
+            <article class="project-card"
+                     data-category="software">
+
+                <div class="project-number">
+                    06
+                </div>
+
+                <h3>
+                    Vehicle Parking Website
+                </h3>
+
+                <p>
+                    Simple web-based parking management interface
+                    allowing users to view and book parking slots
+                    while administrators manage availability and
+                    pricing.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">HTML</span>
+                    <span class="tech">CSS</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/23f2002371/Vehicle-Parking-App---V1-"
+                   target="_blank">
+
+                    View on GitHub ↗
+
+                </a>
+
+            </article>
+
+
+            <!-- PROJECT 07 -->
+
+            <article class="project-card"
+                     data-category="analytics">
+
+                <div class="project-number">
+                    07
+                </div>
+
+                <h3>
+                    Marketing Analytics Dashboard
+                </h3>
+
+                <p>
+                    End-to-end analytics solution using SQL, Python
+                    and Power BI to evaluate customer engagement,
+                    sentiment and campaign performance.
+                </p>
+
+                <div class="tech-stack">
+
+                    <span class="tech">Power BI</span>
+                    <span class="tech">SQL</span>
+                    <span class="tech">Python</span>
+                    <span class="tech">DAX</span>
+
+                </div>
+
+                <a class="project-link"
+                   href="https://github.com/RahulB38/Marketing-Analytics"
+                   target="_blank">
+
+                    View on GitHub ↗
+
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section id="skills" class="reveal">
+
+        <div class="section-title">
+
+            <p>04 — Skills</p>
+
+            <h2>
+                My <span>toolbox.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="skills">
+
+            <span class="skill">Python</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+
+            <span class="skill">Flask</span>
+            <span class="skill">FastAPI</span>
+            <span class="skill">REST APIs</span>
+
+            <span class="skill">SQL</span>
+            <span class="skill">SQLite</span>
+
+            <span class="skill">RAG</span>
+            <span class="skill">LLMs</span>
+            <span class="skill">NLP</span>
+            <span class="skill">Embeddings</span>
+
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Scikit-Learn</span>
+
+            <span class="skill">Power BI</span>
+            <span class="skill">DAX</span>
+            <span class="skill">Microsoft Excel</span>
+
+            <span class="skill">Git</span>
+            <span class="skill">GitHub</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATIONS
+    ========================== -->
+
+    <section class="reveal">
+
+        <div class="section-title">
+
+            <p>05 — Certifications</p>
+
+            <h2>
+                Continuous <span>learning.</span>
+            </h2>
+
+        </div>
+
+
+        <div class="cert-grid">
+
+            <div class="cert">
+
+                <h3>
+                    Oracle AI Vector Search
+                    Certified Professional
+                </h3>
+
+                <p>
+                    Oracle Corporation · 84/100
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>
+                    Generative AI Professional
+                </h3>
+
+                <p>
+                    Oracle Corporation
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>
+                    Oracle Data Platform 2025
+                </h3>
+
+                <p>
+                    Certified Foundations Associate
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>
+                    Data Analysis with SQL
+                </h3>
+
+                <p>
+                    Coursera
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>
+                    Data Analysis & Visualization
+                </h3>
+
+                <p>
+                    Microsoft Power BI
+                </p>
+
+            </div>
+
+
+            <div class="cert">
+
+                <h3>
+                    AWS Cloud Practitioner Essentials
+                </h3>
+
+                <p>
+                    Amazon Web Services
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="contact reveal">
+
+        <div class="section-title">
+
+            <p>06 — Contact</p>
+
+        </div>
+
+
+        <h2>
+            Let's build something
+            <span class="gradient-text">
+                useful.
+            </span>
+        </h2>
+
+        <p>
+            I'm interested in software development, AI applications,
+            data-driven products and opportunities where I can learn
+            and build meaningful things.
+        </p>
+
+
+        <div class="contact-links">
+
+            <a class="btn btn-primary"
+               href="mailto:rahulburdak38@gmail.com">
+
+                Email Me
+
+            </a>
+
+
+            <a class="btn btn-secondary"
+               href="https://github.com/RahulB38"
+               target="_blank">
+
+                GitHub ↗
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © <span id="year"></span> Rahul Burdak.
+        Built with HTML, CSS & JavaScript.
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        function toggleMenu() {
+
+            const navLinks =
+                document.getElementById("navLinks");
+
+            navLinks.classList.toggle("active");
+
+        }
+
+
+        /* Close mobile menu
+           after clicking a link */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(link => {
+
+                link.addEventListener("click", () => {
+
+                    document
+                        .getElementById("navLinks")
+                        .classList
+                        .remove("active");
+
+                });
+
+            });
+
+
+        /* =========================
+           PROJECT FILTER
+        ========================== */
+
+        function filterProjects(category, button) {
+
+            const cards =
+                document.querySelectorAll(".project-card");
+
+            const buttons =
+                document.querySelectorAll(".filter-btn");
+
+
+            buttons.forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            button.classList.add("active");
+
+
+            cards.forEach(card => {
+
+                const cardCategory =
+                    card.dataset.category;
+
+
+                if (
+                    category === "all" ||
+                    cardCategory === category
+                ) {
+
+                    card.style.display = "block";
+
+                    setTimeout(() => {
+
+                        card.style.opacity = "1";
+                        card.style.transform =
+                            "translateY(0)";
+
+                    }, 10);
+
+                }
+
+                else {
+
+                    card.style.opacity = "0";
+                    card.style.transform =
+                        "translateY(15px)";
+
+                    setTimeout(() => {
+
+                        card.style.display = "none";
+
+                    }, 250);
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target
+                                .classList
+                                .add("show");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        document
+            .querySelectorAll(".reveal")
+            .forEach(element => {
+
+                observer.observe(element);
+
+            });
+
+
+        /* =========================
+           FOOTER YEAR
+        ========================== */
+
+        document
+            .getElementById("year")
+            .textContent =
+            new Date().getFullYear();
+
+
+        /* =========================
+           MOUSE PARALLAX
+        ========================== */
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                const orb =
+                    document.querySelector(".orb.one");
+
+                if (!orb) return;
+
+                const x =
+                    (window.innerWidth / 2 -
+                        event.clientX) / 40;
+
+                const y =
+                    (window.innerHeight / 2 -
+                        event.clientY) / 40;
+
+                orb.style.transform =
+                    `translate(${x}px, ${y}px)`;
+
+            }
+        );
+
+    </script>
+
 </body>
 </html>
