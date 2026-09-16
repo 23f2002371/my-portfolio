@@ -322,8 +322,14 @@
     transition:border-color .25s ease, transform .25s ease;
   }
   .proj-card:hover{ border-color:var(--amber-dim); transform:translateY(-4px); }
-  .proj-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px;}
+  .proj-card.featured{
+    grid-column: 1 / -1;
+    background:linear-gradient(155deg, var(--surface) 0%, var(--surface-2) 100%);
+    border-color:var(--amber-dim);
+  }
+  .proj-top{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:10px; gap:16px;}
   .proj-card h3{ font-size:1.12rem; color:var(--paper); }
+  .proj-card.featured h3{ font-size:1.32rem; }
   .proj-link{
     font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--amber);
     border:1px solid var(--amber-dim); border-radius:6px; padding:5px 10px;
@@ -437,7 +443,7 @@
       <span class="prompt">$</span> <span id="roleType"></span><span class="cursor"></span>
     </div>
 
-    <p class="hero-desc">Full-stack and AI/ML engineer concurrently pursuing a B.S. in Data Science from IIT Madras. I build RAG pipelines, NLP systems, and end-to-end web applications — from embeddings and vector retrieval to the Flask/React interface people actually use.</p>
+    <p class="hero-desc">Full-stack and AI/ML engineer concurrently pursuing a B.S. in Data Science from IIT Madras. I build multi-agent systems, RAG pipelines, and end-to-end web applications — from embeddings and vector retrieval to the Flask/React interface people actually use.</p>
 
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View projects →</a>
@@ -492,9 +498,9 @@
         <div class="stat-list reveal">
           <div class="stat-row"><span class="num">8.28</span><span class="label">CGPA · B.E. IT, UIET</span></div>
           <div class="stat-row"><span class="num">7.73</span><span class="label">CGPA · B.S. Data Science, IIT Madras</span></div>
-          <div class="stat-row"><span class="num">9+</span><span class="label">Shipped full-stack &amp; ML projects</span></div>
+          <div class="stat-row"><span class="num">10+</span><span class="label">Shipped full-stack &amp; ML projects</span></div>
           <div class="stat-row"><span class="num">94.3%</span><span class="label">Accuracy · audio genre classifier</span></div>
-          <div class="stat-row"><span class="num">6</span><span class="label">Professional certifications</span></div>
+          <div class="stat-row"><span class="num">8</span><span class="label">Professional certifications</span></div>
         </div>
       </div>
     </div>
@@ -509,12 +515,12 @@
       </div>
       <div class="skill-groups reveal">
         <div class="skill-card">
-          <h4>AI / ML &amp; Data</h4>
+          <h4>Agentic AI &amp; LLM Tooling</h4>
           <div class="chips">
-            <span class="chip">RAG</span><span class="chip">LLMs</span><span class="chip">NLP</span>
-            <span class="chip">Embeddings</span><span class="chip">Prompt Engineering</span>
-            <span class="chip">Scikit-Learn</span><span class="chip">LightGBM / XGBoost</span>
-            <span class="chip">Deep Learning (CNN)</span>
+            <span class="chip">Multi-Agent Systems</span><span class="chip">Agent Orchestration</span>
+            <span class="chip">Tool-Calling</span><span class="chip">RAG</span>
+            <span class="chip">Prompt Engineering</span><span class="chip">Gemini / LLM APIs</span>
+            <span class="chip">ChromaDB</span>
           </div>
         </div>
         <div class="skill-card">
@@ -523,23 +529,23 @@
             <span class="chip">Python</span><span class="chip">JavaScript</span>
             <span class="chip">Flask</span><span class="chip">FastAPI</span>
             <span class="chip">React.js</span><span class="chip">Vue.js</span>
-            <span class="chip">REST APIs</span><span class="chip">Bootstrap</span>
+            <span class="chip">REST APIs</span><span class="chip">Django</span>
           </div>
         </div>
         <div class="skill-card">
-          <h4>Data &amp; Analytics</h4>
+          <h4>ML &amp; MLOps</h4>
+          <div class="chips">
+            <span class="chip">Deep Learning</span><span class="chip">NLP</span>
+            <span class="chip">Scikit-Learn</span><span class="chip">PyTorch</span>
+            <span class="chip">TensorFlow</span><span class="chip">Model Deployment</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h4>Data, Cloud &amp; Tools</h4>
           <div class="chips">
             <span class="chip">SQL</span><span class="chip">Power BI</span>
-            <span class="chip">DAX</span><span class="chip">Excel</span>
-            <span class="chip">Data Cleaning</span><span class="chip">KPI Reporting</span>
-          </div>
-        </div>
-        <div class="skill-card">
-          <h4>Infra &amp; Tools</h4>
-          <div class="chips">
-            <span class="chip">SQLite</span><span class="chip">Redis</span>
-            <span class="chip">Celery</span><span class="chip">Git</span>
-            <span class="chip">Figma</span><span class="chip">Oracle DB</span>
+            <span class="chip">AWS</span><span class="chip">Git / GitHub</span>
+            <span class="chip">Redis</span><span class="chip">Celery</span>
           </div>
         </div>
       </div>
@@ -597,6 +603,18 @@
       </div>
 
       <div class="proj-grid">
+
+        <div class="proj-card featured reveal">
+          <div class="proj-top">
+            <h3>I-Help — Multi-Agent Academic Assistant</h3>
+            <span class="proj-link" style="opacity:.55;cursor:default;">Live on Vercel</span>
+          </div>
+          <div class="proj-highlight">Multi-agent RAG · deployed on Vercel</div>
+          <p>A chat assistant for IIT Madras B.S. students to get instant answers about the course — academics, program structure, and minute details of the curriculum — just by chatting. Built a multi-agent pipeline with intent routing and course detection that hands off queries to specialized answer-generation agents, combining ChromaDB document retrieval with Gemini and embedding models, plus a web-search fallback tool. Backed by an admin dashboard for continuous PDF and web-content ingestion.</p>
+          <div class="proj-tags">
+            <span class="chip">Multi-Agent Systems</span><span class="chip">Agent Orchestration</span><span class="chip">RAG</span><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Gemini</span><span class="chip">ChromaDB</span>
+          </div>
+        </div>
 
         <div class="proj-card reveal">
           <div class="proj-top">
@@ -675,13 +693,13 @@
       <div style="margin-top:24px;" class="reveal">
         <div class="proj-card">
           <div class="proj-top">
-            <h3>Marketing Analytics Dashboard</h3>
-            <a class="proj-link" href="https://github.com/RahulB38/Marketing-Analytics" target="_blank" rel="noopener">Code ↗</a>
+            <h3>Zomato Order Analytics Dashboard</h3>
+            <a class="proj-link" href="https://github.com/RahulB38/Zomato-Order-Analytics" target="_blank" rel="noopener">Code ↗</a>
           </div>
-          <div class="proj-highlight">SQL · Power BI · sentiment analysis</div>
-          <p>End-to-end analytics solution evaluating customer engagement and campaign performance — SQL for data cleaning and trend analysis, Python-based sentiment analysis on customer reviews, and an interactive Power BI dashboard for KPI tracking.</p>
+          <div class="proj-highlight">SQL · Excel · 50,000+ orders analyzed</div>
+          <p>Interactive Excel dashboard built with Pivot Tables, Pivot Charts, KPI cards, and Slicers for dynamic reporting on Zomato order data. Used SQL to clean, query, and analyze 50,000+ transactional records, surfacing revenue, order trends, customer behavior, restaurant performance, and city-wise sales.</p>
           <div class="proj-tags">
-            <span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">DAX</span>
+            <span class="chip">Microsoft Excel</span><span class="chip">SQL</span><span class="chip">KPI Dashboards</span><span class="chip">Business Analytics</span>
           </div>
         </div>
       </div>
@@ -710,6 +728,16 @@
           <span class="badge">Certified</span>
           <h4>Oracle Data Platform 2025 — Foundations Associate</h4>
           <span class="provider">Oracle Corporation</span>
+        </div>
+        <div class="cert-card">
+          <span class="badge">Certified</span>
+          <h4>MLOps and Responsible AI Practices</h4>
+          <span class="provider">Microsoft</span>
+        </div>
+        <div class="cert-card">
+          <span class="badge">Course</span>
+          <h4>AI For Everyone</h4>
+          <span class="provider">DeepLearning.AI</span>
         </div>
         <div class="cert-card">
           <span class="badge">Certified</span>
@@ -753,22 +781,6 @@
             <div class="degree">B.S. — Data Science (Correspondence)</div>
           </div>
           <div class="edu-score">CGPA 7.73</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-year">2022</div>
-          <div>
-            <h3>National Public Sr. Sec. School</h3>
-            <div class="degree">12th, BSER — Gothra Tagelaan, Sikar</div>
-          </div>
-          <div class="edu-score">87.40%</div>
-        </div>
-        <div class="edu-item">
-          <div class="edu-year">2020</div>
-          <div>
-            <h3>National Public Sr. Sec. School</h3>
-            <div class="degree">10th, BSER — Gothra Tagelaan, Sikar</div>
-          </div>
-          <div class="edu-score">92.00%</div>
         </div>
       </div>
     </div>
@@ -823,7 +835,7 @@
   const roles = [
     "full-stack developer",
     "AI / ML engineer",
-    "RAG systems builder",
+    "multi-agent systems builder",
     "data science undergrad"
   ];
   const el = document.getElementById('roleType');
